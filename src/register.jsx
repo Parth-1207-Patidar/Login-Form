@@ -57,7 +57,7 @@ const Register = (props) => {
       .then((userCred) => {
         let user = userCred.user;
         console.log(user);
-        navigate("/");
+        navigate("/login");
       })
       .catch((err) => {
         if (err.message === "Firebase: Error (auth/email-already-in-use).") {
