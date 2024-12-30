@@ -1,9 +1,12 @@
 import React, { useRef, useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./auth";
+import { useNavigate } from "react-router-dom";
 
 const Register = (props) => {
   const { setterFxn, state } = props;
+
+  const navigate = useNavigate();
 
   const [errors, setErrors] = useState({
     email: "",
@@ -54,6 +57,7 @@ const Register = (props) => {
       .then((userCred) => {
         let user = userCred.user;
         console.log(user);
+        navigate("/");
       })
       .catch((err) => {
         if (err.message === "Firebase: Error (auth/email-already-in-use).") {
