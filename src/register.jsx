@@ -3,8 +3,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./auth";
 import { useNavigate } from "react-router-dom";
 
-const Register = (props) => {
-  const { setterFxn, state } = props;
+const Register = () => {
 
   const navigate = useNavigate();
 
@@ -71,8 +70,8 @@ const Register = (props) => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="flex max-w-sm w-1/3 flex-col gap-4 p-4 border border-gray-300">
+    <div className="">
+      <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label htmlFor="email">Email: </label>
           <input
@@ -82,7 +81,7 @@ const Register = (props) => {
             type="email"
             placeholder="Email"
           />
-          {errors.email && <span>{errors.email}</span>}
+          {errors.email && <span className='text-red-500'>{errors.email}</span>}
         </div>
 
         <div className="flex flex-col gap-2">
@@ -94,7 +93,7 @@ const Register = (props) => {
             type="password"
             placeholder="Password"
           />
-          {errors.password && <span>{errors.password}</span>}
+          {errors.password && <span className='text-red-500'>{errors.password}</span>}
         </div>
 
         <div className="flex flex-col gap-2">
@@ -106,12 +105,9 @@ const Register = (props) => {
             type="password"
             placeholder="Password"
           />
-          {errors.confirmPassword && <span>{errors.confirmPassword}</span>}
+          {errors.confirmPassword && <span className='text-red-500'>{errors.confirmPassword}</span>}
         </div>
 
-        <button onClick={() => setterFxn(!state)}>
-          Already have an account? Login
-        </button>
         <button
           className="bg-blue-500 text-white p-2 rounded"
           onClick={() => {

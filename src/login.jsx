@@ -3,9 +3,8 @@ import { auth } from './auth'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 
-const Login = (props) => {
+const Login = () => {
 
-    const {setterFxn, state} = props
     const [errors, setErrors] = useState({
         email: '',
         password: ''
@@ -68,9 +67,9 @@ const Login = (props) => {
     }
 
   return (
-    <div className="flex justify-center items-center h-screen ">
+    <div className="">
 
-      <div className="flex max-w-sm w-1/3 flex-col gap-4 p-4 border border-gray-300">
+      <div className="flex flex-col gap-4">
         
         <div className="flex flex-col gap-2">
         <label htmlFor='email'>Email: </label>
@@ -84,11 +83,10 @@ const Login = (props) => {
         {errors.password && <span>{errors.password}</span>}
         </div>
 
-        {userMessage && <span>{userMessage}</span>}
+        {userMessage && <span className='text-red-500'>{userMessage}</span>}
 
-        {errors.general && <span>{errors.general}</span>}
+        {errors.general && <span className='text-red-500'>{errors.general}</span>}
         
-        <button onClick={() => setterFxn(!state)}>Don't have an account? Register</button>
         <button className='bg-blue-500 text-white p-2 rounded'
           onClick={() => {
             userLogin(emailRef.current.value, passwordRef.current.value);
@@ -96,6 +94,13 @@ const Login = (props) => {
         >
           Login
         </button>
+
+        
+        <div className='flex justify-between text-xs gap-2'>
+        <button onClick={() => navigate('/forgotPassword')}>Forgot Password</button>
+        </div>
+
+
       </div>
     </div>
   )
