@@ -5,14 +5,13 @@ const apiKey = import.meta.env.VITE_FIREBASE_API_KEY;
 
 const firebaseConfig = {
     apiKey: apiKey,
-    authDomain: "myfirstproject-80698.firebaseapp.com",
-    projectId: "myfirstproject-80698",
-    storageBucket: "myfirstproject-80698.firebasestorage.app",
-    messagingSenderId: "375596073067",
-    appId: "1:375596073067:web:979f1ef08179fa4e6af12e",
-    measurementId: "G-FJV7DLPY9G",
-    databaseURL: "https://myfirstproject-80698-default-rtdb.asia-southeast1.firebasedatabase.app/",
-};
+    authDomain: "myfirstproject-c21c6.firebaseapp.com",
+    projectId: "myfirstproject-c21c6",
+    storageBucket: "myfirstproject-c21c6.firebasestorage.app",
+    messagingSenderId: "796875155093",
+    appId: "1:796875155093:web:37f2ef25ffc3daef09dd9c",
+    measurementId: "G-9P0PCWEYHF"
+  };
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
