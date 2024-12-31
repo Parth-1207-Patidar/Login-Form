@@ -11,10 +11,10 @@ const Form = () => {
             <div className="flex max-w-sm w-full flex-col gap-4 p-4 border border-gray-300">
 
                 <div className="flex justify-between gap-4 w-full"> 
-                    <button className='w-1/2 bg-gray-200 p-1' onClick={() => setHasAccount(true)}>Login</button>
-                    <button className='w-1/2 bg-gray-200 p-1' onClick={() => setHasAccount(false)}>Register</button>
+                    <button className={hasAccount ? "w-1/2 bg-gray-400 p-1" : "w-1/2 bg-gray-200 p-1" } onClick={() => setHasAccount(true)}>Login</button>
+                    <button className={hasAccount ? "w-1/2 bg-gray-200 p-1" : "w-1/2 bg-gray-400 p-1"} onClick={() => setHasAccount(false)}>Register</button>
                 </div>
-                
+
                 {hasAccount ? <Login /> : <Register />}
             </div>
         </div>
