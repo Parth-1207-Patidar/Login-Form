@@ -28,7 +28,7 @@ const ForgotPassword = () => {
 
         sendPasswordResetEmail(auth, email)
             .then(() => {
-                alert('Password reset email sent');
+                alert('If there is an account associated with this email, a password reset link has been sent to it');
             })
             .catch((err) => {
                 if (err.code.includes('auth/user-not-found')) {
