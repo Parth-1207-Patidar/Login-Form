@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { auth } from "./auth";
 import { useNavigate } from "react-router-dom";
 
@@ -53,10 +53,16 @@ const Register = () => {
     }
 
     createUserWithEmailAndPassword(auth, `${email}`, `${password}`)
-      .then((userCred) => {
-        let user = userCred.user;
-        console.log(user);
-        navigate("/login");
+      .then((userCredentials) => {
+        let user = userCredentials.user;
+
+        sendEmailVerification(user)
+          .then(() => {
+            alert("Email verification sent");
+            setTimeout(() => {
+              navigate("/verify");
+            }, 2000)
+          })
       })
       .catch((err) => {
         if (err.message === "Firebase: Error (auth/email-already-in-use).") {
