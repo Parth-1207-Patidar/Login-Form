@@ -1,10 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
-const apiKey = import.meta.env.VITE_FIREBASE_API_KEY;
+const API_KEY = import.meta.env.VITE_FIREBASE_API_KEY;
 
 const firebaseConfig = {
-    apiKey: apiKey,
+    apiKey: API_KEY,
     authDomain: "myfirstproject-c21c6.firebaseapp.com",
     projectId: "myfirstproject-c21c6",
     storageBucket: "myfirstproject-c21c6.firebasestorage.app",
